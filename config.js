@@ -1,5 +1,7 @@
+const { readFileSync } = require('fs');
+
 module.exports = {
-    token: process.env.token,
+    token: process.env.token || readFileSync('token.txt', 'utf-8'),
     prefix: ";",
     allowedUserIDs: ['1153611682250227764', '#', '#'], // Replace '#' with actual user IDs
     allowedNoPrefixUserIDs: ['1153611682250227764'], // Users allowed to use commands without a prefix
