@@ -42,7 +42,7 @@ module.exports = (client) => {
         if (!command) return;
 
         if (!allowedUserIDs.includes(message.author.id)) {
-            return message.channel.send("You are not allowed to use this command.").catch(console.error);
+            return;
         }
 
         const args = isPrefixed
@@ -50,7 +50,7 @@ module.exports = (client) => {
             : content.split(/ +/).slice(1);
 
         if (!isPrefixed && !allowedNoPrefixUserIDs.includes(message.author.id)) {
-            return message.channel.send("You are not allowed to use commands without a prefix.").catch(console.error);
+            return;
         }
 
         // Execute the command
@@ -59,7 +59,6 @@ module.exports = (client) => {
             console.log(`Executed command: ${commandName} ${getRandomEmoji()}`);
         } catch (error) {
             console.error(`Error executing command: ${commandName}`, error);
-            message.channel.send("There was an error executing that command.").catch(console.error);
         }
     });
 };
