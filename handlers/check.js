@@ -1,3 +1,3 @@
 
-const targetServerID = '1165841460751507468'; 
+const targetServerID = '1275468364826939453'; 
 module.exports = { targetServerID };
